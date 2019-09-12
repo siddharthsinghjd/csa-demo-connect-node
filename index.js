@@ -51,6 +51,15 @@ app.get("/",function defaultRoute(req, res){
     });
 });
 
+app.get("/contacts",function defaultRoute(req, res){
+    var query = "SELECT * FROM salesforce.account";
+    var result = [];
+    sharedPgClient.query(query, function(err, result){
+        console.log("Jobs Query Result Count: " + result.rows.length);
+        res.render("index1.ejs", {connectResults: result.rows});
+    });
+});
+
 /*
  * Run Server
  */
