@@ -43,7 +43,7 @@ app.set("view engine", "ejs");
  * Jobs Landing Page
  */
 app.get("/",function defaultRoute(req, res){
-    var query = "SELECT * FROM salesforceapp.account";
+    var query = "SELECT * FROM salesforce.account";
     var result = [];
     sharedPgClient.query(query, function(err, result){
         console.log("Jobs Query Result Count: " + result.rows.length);
